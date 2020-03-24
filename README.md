@@ -1,2 +1,1 @@
-# quassel-site
-Sources for the Quassel IRC website at https://quassel-irc.org.
+**This is early work in progress. The master branch will be frequently force-pushed!**
