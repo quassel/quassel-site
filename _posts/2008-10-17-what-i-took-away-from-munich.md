@@ -1,0 +1,37 @@
+---
+tags: []
+title: What I took away from Munich
+---
+The Quassel development team (yes, in full force) has been at the <strike>Trolltech</strike> Qt Developer Days in Munich again. As last year, <strike>Trolltech</strike> Nokia has generously invited us to the conference in the shiny Hilton hotel. We had a great time, met a lot of interesting people and saw several interesting talks. Our thanks go in particular to Knut Yrvin, Qt Software's community manager, for making this possible.
+
+A few random points I took away from that event:
+<!--break-->
+
+<ul>
+<li>Trolls are still called Trolls. They even got a new batch of shirts saying "I am a troll"</li>
+<li>Thought Nokia would just kill off Qt and be done with it? Think again. They really push hard to get it predominant on mobile platforms. Rumors about Qt being ported to yet more (mobile) platforms are of course totally unfounded. Except if you read between the lines.</li>
+<li>Maemo is going to see some interesting development as well. Qt will be an integral part of it in one of the next releases.</li>
+<li><strike>Trolltech</strike> Qt Software hires. Another sign of Nokia wanting to see Qt succeed. Too bad I've already got a job for the next couple years...</li>
+<li>I really, really, really want Qt 4.5. Now. NOW!1!!</li>
+<li>Some "business people" really have a hard time understanding Open Source developers. The concept of people doing work in their free time without being sponsored seems to be a strange one outside of our nice cozy free world...</li>
+<li>Along those lines: Yes, we would gladly accept donations and support from companies. Besides delivering you a great chat client, we'd make sure your company gets a honorable mention on our web page and in Quassel's About dialog. But there is no way that we'd put advertisements in Quassel, much less ones that get in the way. Even if some business people seem to think that ad banners and popups are the only way to get corporate sponsorship, something like that is clearly off-limits for a free and open source project. Either your company thinks that our project deserves sponsoring in its own right and wants to support it for what it is, or it can give its money to a project that does not care about ethics and community, if such a project exists.</li>
+<li>The ratio of neckties goes down a lot over the days. Apparently people arrive on Monday evening expecting an all-out business event, dressed up appropriately, and then notice that there are some people (technical staff and geeks, mostly) dressed up in jeans and t-shirt instead. By Wednesday, most neckties and suits are gone...</li>
+<li>I don't really have anything against business people :) Most of them are quite eager to learn about Free software and our community, and we've had some interesting discussions. By the way, same thing happened at CeBIT earlier this year, which also mostly is a business event. It always amazes me how different our worlds are though. Being part of our community for years, it's hard to grasp for me that there are (lots of) people who haven't even heard of there being something besides the corporate, Microsoft-dominated world. Or of people spending most of their free time on providing great software or helping others. On the other hand, we in the Free Software Community have some misconceptions about the business world as well, and could learn from it in some respects. I think events like CeBIT and DevDays provide a great opportunity to get those two worlds in touch. Also, it can't hurt if the guy making strategic IT decisions in a company has at least seen that there are alternatives, or will recognize them when somebody mentions them to him later. sven423 of Amarok fame and I came up with the term "Grassroots Lobbying" for that <a href="/pub/cebit2008-microsoft-standparty.jpg">at CeBIT</a> :)</li>
+<li>People seem to like Quassel a lot, even people higher up in Qt Software's hierarchy. Seems there are some interesting perspectives for Quassel's future to be explored.</li>
+<li>Greenhouse has been announced. Yet another IDE. Looks quite shiny, and has some really nice ideas, but I still don't see it replace KDevelop4/Emacs/vi yet. Also it slightly worries me that not even Matthias Ettrich seemed to know yet if it will be released as Open Source at all. Guys, if you decide to keep it closed, you won't stand any chance of success. Let's hope you do The Right Thing!</li>
+<li>It's fun attending a Maemo workshop, and when the presenter shows around the Qt applications that he successfully got to run on the N810, he pops up Quassel. Not knowing that he is just presenting this to the Quassel dev team :)</li>
+<li>We really need to put work into getting Quassel to run on mobiles properly. I mean it works already, but it could work so much better...</li>
+<li>Breakfast at Hilton is the only occasion I know of outside of a plane where tomato juice is served. Om nom nom!</li>
+<li>Being a keynote speaker (and Vice President of the company) does not save you from not being recognized a few hours later by people who shall remain nameless.</li>
+<li>Coffee seems to be much more expensive on Day 2 compared to Day 1, as catering (like last year) refused to provide coffee and tea outside of the official coffee breaks on the second day. On the first day, it flowed all day...</li>
+<li>Don't save your drink vouchers. Bar closes without warning, and leaves you sitting on 15 euros worth of virtual alcohol without being able to convert that into the real stuff :(</li>
+<li>Other than sometimes unexpectedly not providing coffee and/or alcohol, catering was great. A nice reception, excellent food, and a ton of Hilton employees running around making sure that everything is taken care of.</li>
+<li>Providing free internet access for conference participants still seems to be not a standard. In addition, providing cell phone reception (such that one could go online via G3/UMTS) seems to not be a standard either. Well, less distraction from the talks ;-)</li>
+<li>I tried to pick up some Finnish and Norsk. I was barely able to repeat "Guten Appetit" in Finnish though, much less remember it :)</li>
+<li>As usual, the Trolls organized one of their famous "first annual fun games" at dinner. This time, we had to guess if certain provided claims were "Crap or Fact". Needless to say, some of those facts we really didn't want to know... Too bad, our team ("Team Qrap") only got 16 out of 21 right and therefore missed the opportunity to take a bunch of N810s home by a mere two points :(</li>
+<li>Speaking of dinner, it was again a lot of fun to have some trolls at our table. Knut is always a good entertainer (though he questions German humor :p), and later on we had the opportunity to discuss with Sebastian Nyström and Matthias Ettrich.</li>
+<li>After last year's Trolltech jacket, this time we got a nice Qt-branded conference bag and (finally!) a DevDays T-Shirt. Thanks! :)</li>
+<li>Die Bahn fails. Hard.</li>
+</ul>
+
+We are looking forward to go to DevDays again next year (though I would expect a location change, Hilton is really getting too small for all those people... or Qt is getting too popular?). Thanks to all the Trolls and Nokia for organizing such an event, and for letting Open Source developers participate for free. If Nokia continues supporting the community as they have since they bought Trolltech, I see a bright and shiny future for Qt and KDE.

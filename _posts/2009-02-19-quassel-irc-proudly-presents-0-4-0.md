@@ -1,0 +1,23 @@
+---
+tags: release
+title: 'Quassel IRC Proudly Presents: 0.4.0!'
+---
+After about three months of hard work, the Quassel Team has tagged the brand-new and extra-shiny 0.4.0 release for you! And for extra convenience, we even have updated our <a href="/downloads">downloads page!</a> To reach this important milestone, 432 commits went into Git since 0.3.1.
+
+As usual, you can find most features we have added in the <a href="/pub/ChangeLog">FeatureLog</a>, and if you are <em>really</em> interested, you can peruse the <a href="http://git.quassel-irc.org/?p=quassel.git;a=shortlog;h=refs/heads/0.4">Git history</a>. Let me highlight the most important things right here though.
+<!--break-->
+
+<ul>
+<li><b>KDE integration.</b> Yes, Quassel finally gained support for integrating into KDE4! Most notably, this means that your style, icon theme and colorscheme should be picked up correctly, and Quassel uses the KDE notification system for highlights. Note that, if you compile Quassel yourself, you need to pass -DWITH_KDE=1 to cmake to enable this. Note also that KDE4 support is optional, and will always be optional, so if you don't use KDE4, have no fear :)</li>
+<li><b>Many usability and UI improvements all over the place.</b> Things like context menus in the chat window and channel lists, clickable URLs, improved dialogs, streamlined default settings, and much more. Kubuntu provided us with <a href="http://quassel-irc.org/node/93">invaluable feedback</a> in order to make Quassel IRC suitable for IRC novices. Their push to use Quassel as their default IRC client, intended as a primary support tool, certainly motivated us to tackle many of the usability issues we had ignored earlier :)</li>
+<li><b>Streamlined monolithic client.</b> While the monolithic client, combining client and core in one binary, has always (yes, always!) been around, it was disabled by default until recently. The main reason for this was the fact that it was awkward to use and confusing to users; before the 0.3.1 release, you actually had to configure a core connection to localhost, and in 0.3.1, you still had to start the internal core by pressing a button in the core connection dialog. With 0.4.0, the monolithic client completely hides the client/core concept from the user, making Quassel act like a traditional, non-distributed IRC client. Unfortunately, for now you cannot use the monolithic client for connecting to a remote core. This functionality will be back in a later release; for now, you need to use quasselclient instead.</li>
+<li><b>Gorgeous new artwork.</b> <a href="http://pinheiro-kde.blogspot.com/">Nuno Pinheiro</a> of <a href="http://www.oxygen-icons.org">Oxygen</a> fame has provided us with a shiny new application icon, animations for the system tray icon, plus a bunch of irc-related actions. We have added new icons to the nick and channel lists and in other places too. So Quassel now looks a whole lot nicer than it used to ;-)</li>
+<li><b>Improved SSL support.</b> Quassel now supports certificate handling for both the client/core and the core/IRC connections. You can now also use certificate-based authentication for IRC networks supporting it, such as OFTC.</li>
+<li><b>Centralized data and config storage.</b> We are now storing all configuration and backlog data in one place, rather than scattering it in several directories or the registry. See <a href="/node/96">this blog entry</a> for details. Note that while your data should be migrated automatically, it might sometimes not. So if your Quassel complains about missing configuration, or wants to start with a blank database, be sure to first check for this!</li>
+</ul>
+
+<b>A note to translators:</b> We couldn't impose a string freeze for the 0.4.0 release, as we were working on the UI until the last minute, and we had a pressing deadline this time to meet Kubuntu Jaunty's feature freeze. We consider the 0.4 branch stable now in terms of strings (i.e., we don't expect changing strings around there in the future), so please send in updated translations for 0.4 now! We will collect them and release a 0.4.1 containing them later on.
+
+<b>A note to distro packagers:</b> We have created a 0.4 branch now that will see important bugfixes backported, but no new features. If your distro has version freezes, packaging 0.4 is what you want. Note that 0.3.0.x is now officially unmaintained, and since 0.3.1 was a transient release without backport support, there will be no more 0.3.x releases.
+
+That's it for now. Be sure to get the new release as long as it's still fresh and tasty, and start looking forward to a plethora of new features to be implemented in the 0.5 release cycle :)
