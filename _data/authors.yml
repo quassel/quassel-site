@@ -1,0 +1,14 @@
+EgS:
+  name     : "Marcus 'EgS' Eggenberger"
+  bio      : "Core Developer"
+  location : "Germany"
+
+Sputnick:
+  name     : Manuel 'Sputnick' Nickschas
+  bio      : "Core Developer"
+  location : "Germany"
+  email    : "sputnick <at> quassel-irc.org"
+  links:
+     - label: "GitHub"
+       icon: "fab fa-fw fa-github"
+       url: "https://github.com/quassel/quassel"
