@@ -1,0 +1,35 @@
+name: Build and deploy the quassel-irc.org site
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  jekyll:
+    runs-on: ubuntu-latest
+    name: Build and deploy the quassel-irc.org site
+    steps:
+      - name: 📂 Checkout source files
+        uses: actions/checkout@v2
+
+      - name: 💎 Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+
+      - name: 🔨 Install dependencies & build site
+        uses: limjh16/jekyll-action-ts@v2
+        with:
+          enable_cache: true
+
+      - name: 🚀 Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          cname: quassel-irc.net # Temporary domain name, until the site is ready for production
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: Quassel IRC CI
+          user_email: ci@quassel-irc.org
+          publish_dir: ./_site
+          publish_branch: gh-pages
+          commit_message: "${{ github.event.head_commit.message }}\n\nDeployed-from:"
