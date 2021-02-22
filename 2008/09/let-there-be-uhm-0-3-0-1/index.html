@@ -1,0 +1,435 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Let there be, uhm, 0.3.0…1! - Quassel IRC</title>
+<meta name="description" content="After quite a long while, we finally present to you a new shiny Quassel IRC release! It so happened that we decided to call it 0.3.0.1, which, as attentive readers will certainly notice in an instant, is not the long-expected 0.2.0 (and not even 0.3.0, for that matter). So, uhm, what’s up with those Quassel developers and their versioning scheme?  As some of you know, we have been working on a rewrite of the old ChatWidget for quite some time now, and it was always planned that this rewrite would end up as a 0.3 release, whereas the old ChatWidget would live in 0.2. It turned out that we would not only rewrite the ChatWidget (which is now called ChatView), but also most of the client-side message handling. We have switched to a Model-View-Controller-based architecture now. Other than being much easier to maintain and improve on, this approach also allows maximum resource sharing (for example, a chatline is now only stored once, no matter how many ChatViews display it). This results in a Quassel Client that needs much less RAM than versions from the 0.2 branch. Also, we have been (and still are) working on making things more efficient both time- and space-wise, and the current 0.3.0.1 client is already much leaner and meaner than 0.2.0-rc1.  In addition to that architectural rewrite and the optimizations, with the new ChatView and its new and improved code base we could finally start adding new features and improvements to your chat window. So you’ll notice a bunch of new stuff, like visible column handles, a last-seen remember line, in-buffer search and more. I won’t give you a comprehensive list of new features this time, since it’s just too much - just check it out for yourself!   So, back to versioning. We’ve been developing 0.3 in parallel while stabilizing 0.2.0 for several months, when we suddenly noticed that 0.3 had become more stable than 0.2 in the meantime, in addition to all the new features and shiny stuff it got… sure, there are still some minor regressions caused by rewriting everything, but overall, we were much happier with 0.3 than with 0.2. And since it doesn’t make sense to maintain an inferior version that is not even more stable than the new stuff, well, we decided to pull a Larry[*] and just skip over to 0.3.0.  Of course, and in accordance to Murphy’s Law, it took us less than an hour after the tagging to realize that some really annoying bugs had crept into the release in the last minute. So we decided to, well, skip over 0.3.0 as well, worked hard during the past week to fix the most annoying bugs, and now finally officially let this bugfix release out in the wild :)  Since Murphy never sleeps, it took us only 2 minutes after tagging this time until we got alerted that 0.3.0.1 won’t actually build on Windows, and MacOSX. But, oh well. If you plan to build your own binaries on those platforms, please get a current checkout of the 0.3.0-backport branch rather than the 0.3.0.1 tag. On our download page, you’ll find pre-built binaries for all platforms as usual.  Oh, you probably are not surprised by now that we’ve changed the core/protocol between the 0.2 and 0.3 versions, so you should be aware of the fact that a 0.2 client won’t work with a 0.3 core and vice versa. Upgrading the core will work seamless, upgrading the client will remove custom color settings you might have had, but otherwise work seamless as well. As usual, downgrades are not supported.  Another known issue is that Quassel Client will start eating CPU after running for a while (a day or so). We are working on finding the cause for that, but for now, please bear with us.  Now enough of the blabbering, go grab your shiny new Quassel and have fun with it :)  ~ Sputnick  [*] There never was a fourth part!">
+
+
+  <meta name="author" content="Manuel 'Sputnick' Nickschas">
+  
+  <meta property="article:author" content="Manuel 'Sputnick' Nickschas">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Quassel IRC">
+<meta property="og:title" content="Let there be, uhm, 0.3.0…1!">
+<meta property="og:url" content="https://quassel-irc.org/2008/09/let-there-be-uhm-0-3-0-1/">
+
+
+  <meta property="og:description" content="After quite a long while, we finally present to you a new shiny Quassel IRC release! It so happened that we decided to call it 0.3.0.1, which, as attentive readers will certainly notice in an instant, is not the long-expected 0.2.0 (and not even 0.3.0, for that matter). So, uhm, what’s up with those Quassel developers and their versioning scheme?  As some of you know, we have been working on a rewrite of the old ChatWidget for quite some time now, and it was always planned that this rewrite would end up as a 0.3 release, whereas the old ChatWidget would live in 0.2. It turned out that we would not only rewrite the ChatWidget (which is now called ChatView), but also most of the client-side message handling. We have switched to a Model-View-Controller-based architecture now. Other than being much easier to maintain and improve on, this approach also allows maximum resource sharing (for example, a chatline is now only stored once, no matter how many ChatViews display it). This results in a Quassel Client that needs much less RAM than versions from the 0.2 branch. Also, we have been (and still are) working on making things more efficient both time- and space-wise, and the current 0.3.0.1 client is already much leaner and meaner than 0.2.0-rc1.  In addition to that architectural rewrite and the optimizations, with the new ChatView and its new and improved code base we could finally start adding new features and improvements to your chat window. So you’ll notice a bunch of new stuff, like visible column handles, a last-seen remember line, in-buffer search and more. I won’t give you a comprehensive list of new features this time, since it’s just too much - just check it out for yourself!   So, back to versioning. We’ve been developing 0.3 in parallel while stabilizing 0.2.0 for several months, when we suddenly noticed that 0.3 had become more stable than 0.2 in the meantime, in addition to all the new features and shiny stuff it got… sure, there are still some minor regressions caused by rewriting everything, but overall, we were much happier with 0.3 than with 0.2. And since it doesn’t make sense to maintain an inferior version that is not even more stable than the new stuff, well, we decided to pull a Larry[*] and just skip over to 0.3.0.  Of course, and in accordance to Murphy’s Law, it took us less than an hour after the tagging to realize that some really annoying bugs had crept into the release in the last minute. So we decided to, well, skip over 0.3.0 as well, worked hard during the past week to fix the most annoying bugs, and now finally officially let this bugfix release out in the wild :)  Since Murphy never sleeps, it took us only 2 minutes after tagging this time until we got alerted that 0.3.0.1 won’t actually build on Windows, and MacOSX. But, oh well. If you plan to build your own binaries on those platforms, please get a current checkout of the 0.3.0-backport branch rather than the 0.3.0.1 tag. On our download page, you’ll find pre-built binaries for all platforms as usual.  Oh, you probably are not surprised by now that we’ve changed the core/protocol between the 0.2 and 0.3 versions, so you should be aware of the fact that a 0.2 client won’t work with a 0.3 core and vice versa. Upgrading the core will work seamless, upgrading the client will remove custom color settings you might have had, but otherwise work seamless as well. As usual, downgrades are not supported.  Another known issue is that Quassel Client will start eating CPU after running for a while (a day or so). We are working on finding the cause for that, but for now, please bear with us.  Now enough of the blabbering, go grab your shiny new Quassel and have fun with it :)  ~ Sputnick  [*] There never was a fourth part!">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2008-09-03T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://quassel-irc.org/2008/09/let-there-be-uhm-0-3-0-1/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Quassel Project",
+      "url": "https://quassel-irc.org/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Quassel IRC Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/masthead-logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Quassel IRC
+          <span class="site-subtitle">Chat comfortably, everywhere.</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Manuel 'Sputnick' Nickschas</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Core Developer</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Germany</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/quassel/quassel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:sputnick <at> quassel-irc.org">
+            <meta itemprop="email" content="sputnick <at> quassel-irc.org" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Let there be, uhm, 0.3.0…1!">
+    <meta itemprop="description" content="After quite a long while, we finally present to you a new shiny Quassel IRC release! It so happened that we decided to call it 0.3.0.1, which, as attentive readers will certainly notice in an instant, is not the long-expected 0.2.0 (and not even 0.3.0, for that matter). So, uhm, what’s up with those Quassel developers and their versioning scheme?As some of you know, we have been working on a rewrite of the old ChatWidget for quite some time now, and it was always planned that this rewrite would end up as a 0.3 release, whereas the old ChatWidget would live in 0.2. It turned out that we would not only rewrite the ChatWidget (which is now called ChatView), but also most of the client-side message handling. We have switched to a Model-View-Controller-based architecture now. Other than being much easier to maintain and improve on, this approach also allows maximum resource sharing (for example, a chatline is now only stored once, no matter how many ChatViews display it). This results in a Quassel Client that needs much less RAM than versions from the 0.2 branch. Also, we have been (and still are) working on making things more efficient both time- and space-wise, and the current 0.3.0.1 client is already much leaner and meaner than 0.2.0-rc1.In addition to that architectural rewrite and the optimizations, with the new ChatView and its new and improved code base we could finally start adding new features and improvements to your chat window. So you’ll notice a bunch of new stuff, like visible column handles, a last-seen remember line, in-buffer search and more. I won’t give you a comprehensive list of new features this time, since it’s just too much - just check it out for yourself!So, back to versioning. We’ve been developing 0.3 in parallel while stabilizing 0.2.0 for several months, when we suddenly noticed that 0.3 had become more stable than 0.2 in the meantime, in addition to all the new features and shiny stuff it got… sure, there are still some minor regressions caused by rewriting everything, but overall, we were much happier with 0.3 than with 0.2. And since it doesn’t make sense to maintain an inferior version that is not even more stable than the new stuff, well, we decided to pull a Larry[*] and just skip over to 0.3.0.Of course, and in accordance to Murphy’s Law, it took us less than an hour after the tagging to realize that some really annoying bugs had crept into the release in the last minute. So we decided to, well, skip over 0.3.0 as well, worked hard during the past week to fix the most annoying bugs, and now finally officially let this bugfix release out in the wild :)Since Murphy never sleeps, it took us only 2 minutes after tagging this time until we got alerted that 0.3.0.1 won’t actually build on Windows, and MacOSX. But, oh well. If you plan to build your own binaries on those platforms, please get a current checkout of the 0.3.0-backport branch rather than the 0.3.0.1 tag. On our download page, you’ll find pre-built binaries for all platforms as usual.Oh, you probably are not surprised by now that we’ve changed the core/protocol between the 0.2 and 0.3 versions, so you should be aware of the fact that a 0.2 client won’t work with a 0.3 core and vice versa. Upgrading the core will work seamless, upgrading the client will remove custom color settings you might have had, but otherwise work seamless as well. As usual, downgrades are not supported.Another known issue is that Quassel Client will start eating CPU after running for a while (a day or so). We are working on finding the cause for that, but for now, please bear with us.Now enough of the blabbering, go grab your shiny new Quassel and have fun with it :)~ Sputnick[*] There never was a fourth part!">
+    <meta itemprop="datePublished" content="2008-09-03T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Let there be, uhm, 0.3.0…1!
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>After quite a long while, we finally <a href="/downloads">present</a> to you a new shiny Quassel IRC release! It so happened that we decided to call it 0.3.0.1, which, as attentive readers will certainly notice in an instant, is not the long-expected 0.2.0 (and not even 0.3.0, for that matter). So, uhm, what’s up with those Quassel developers and their versioning scheme?</p>
+
+<p>As some of you know, we have been working on a rewrite of the old ChatWidget for quite some time now, and it was always planned that this rewrite would end up as a 0.3 release, whereas the old ChatWidget would live in 0.2. It turned out that we would not only rewrite the ChatWidget (which is now called ChatView), but also most of the client-side message handling. We have switched to a Model-View-Controller-based architecture now. Other than being much easier to maintain and improve on, this approach also allows maximum resource sharing (for example, a chatline is now only stored once, no matter how many ChatViews display it). This results in a Quassel Client that needs much less RAM than versions from the 0.2 branch. Also, we have been (and still are) working on making things more efficient both time- and space-wise, and the current 0.3.0.1 client is already much leaner and meaner than 0.2.0-rc1.</p>
+
+<p>In addition to that architectural rewrite and the optimizations, with the new ChatView and its new and improved code base we could finally start adding new features and improvements to your chat window. So you’ll notice a bunch of new stuff, like visible column handles, a last-seen remember line, in-buffer search and more. I won’t give you a comprehensive list of new features this time, since it’s just too much - just <a href="/downloads">check it out for yourself</a>!
+<!--break--></p>
+
+<p>So, back to versioning. We’ve been developing 0.3 in parallel while stabilizing 0.2.0 for several months, when we suddenly noticed that 0.3 had become more stable than 0.2 in the meantime, in addition to all the new features and shiny stuff it got… sure, there are still some minor regressions caused by rewriting everything, but overall, we were much happier with 0.3 than with 0.2. And since it doesn’t make sense to maintain an inferior version that is not even more stable than the new stuff, well, we decided to pull a Larry[*] and just skip over to 0.3.0.</p>
+
+<p>Of course, and in accordance to Murphy’s Law, it took us less than an hour after the tagging to realize that some really annoying bugs had crept into the release in the last minute. So we decided to, well, skip over 0.3.0 as well, worked hard during the past week to fix the most annoying bugs, and now finally officially let this bugfix release out in the wild :)</p>
+
+<p>Since Murphy never sleeps, it took us only 2 minutes after tagging this time until we got alerted that 0.3.0.1 won’t actually build on Windows, and MacOSX. But, oh well. If you plan to build your own binaries on those platforms, please get a current checkout of the 0.3.0-backport branch rather than the 0.3.0.1 tag. On our <a href="/downloads">download page</a>, you’ll find pre-built binaries for all platforms as usual.</p>
+
+<p>Oh, you probably are not surprised by now that we’ve changed the core/protocol between the 0.2 and 0.3 versions, so you should be aware of the fact that a 0.2 client won’t work with a 0.3 core and vice versa. Upgrading the core will work seamless, upgrading the client will remove custom color settings you might have had, but otherwise work seamless as well. As usual, downgrades are not supported.</p>
+
+<p>Another known issue is that Quassel Client will start eating CPU after running for a while (a day or so). We are working on finding the cause for that, but for now, please bear with us.</p>
+
+<p>Now enough of the blabbering, go grab your shiny new Quassel and have fun with it :)</p>
+
+<p>~ Sputnick</p>
+
+<p>[*] There never was a fourth part!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/release" class="page__taxonomy-item" rel="tag">release</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2008-09-03T00:00:00+00:00">September 3, 2008</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/2008/07/rc1-will-hopefully-be-the-last-release-candidate-ever/" class="pagination--pager" title="rc1 will (hopefully) be the last Release Candidate… ever!
+">Previous</a>
+    
+    
+      <a href="/2008/10/fan-mail/" class="pagination--pager" title="Fan Mail
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/quassel/quassel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Quassel Project. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,456 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>A Candidate Long in the Making - Quassel 0.13-rc1 - Quassel IRC</title>
+<meta name="description" content="Hi all,  more than three years since 0.12.0 was released, and over 500 commits on top of what went into the current stable branch, we’re finally in the last stretch of the next major feature release!  Since so much work and changes went into this, this time we’ve decided to not only roll a release candidate, but also announce it publicly, so daring people can test things before final release.  Some caveats upfront: Both the database schema and the config file formats have been updated since 0.12. Quassel will automatically upgrade both once the new version is started for the first time, however no rollback is possible, so do make a backup! Also the upgrade may take a long time (several hours) if your database is (un)reasonably large, during which the core or mono client cannot be used. The upgrade may also temporarily require up to double the disk space. Do not interrupt the upgrade process, otherwise your database may become corrupted!  Nevertheless, the Quassel protocol between remote cores and clients still is backwards-compatible all the way down to 0.5.0, which was released in 2009. While you may not be able to use all the newer features when connecting to older versions, things still work, and there is no need to upgrade both ends at the same time.  This is also a call for translators. If you’d like to improve the localization of Quassel in your language, please head over to Transifex and contribute. We’ll merge back the updated translations shortly before final release of 0.13.0.  Too many changes went into this release to be able to list them all (have a look at the ChangeLog for a reasonable overview), but here are some highlights:     New branding, more modern icons (from the Breeze icon theme)   Better support for icon themes   Many UI improvements   Support for many IRCv3 features, including the display of modern formatting codes   Functionality such as highlights and chat activity tracking move into the core to help mobile clients to be more efficient   Support for containerization, i.e. config-less core   Optional authentication via LDAP   Database improvements, including support for 64 bit IDs and timestamps, and performance tweaks -… and much more!   The usual packages are available for download now:    Source tarball   OSX core, standalone client, monolithic client   Windows installer (32 bit, 64 bit) containing core, client and the standalone client   We’re discontinuing the pseudo-static core, because creating static binaries that run on most platforms becomes increasingly fragile; bundling things like OpenSSL also introduces security risks, since the bundled version will not be updated with the system. Additionally, our binary packages for OSX and Windows do not support the PostgreSQL database backend for the core due to limitations in our build environments, as well as lack of demand.  Do let us know if you run into issues or regressions. Otherwise, we’re expecting a final release in the coming weeks!  NOTE: As announced several times already, 0.13.0 will be the last feature release still supporting Qt4 and KDE4. We’ll significantly bump the build and runtime requirements for future releases in order to be able to modernize the code base. Planned baseline for 0.14 onwards is Ubuntu 16.04 “Xenial”, as well as reasonable recent toolchains for OSX and Windows.  That’s it for now!  Always yours, ~ Sput">
+
+
+  <meta name="author" content="Manuel 'Sputnick' Nickschas">
+  
+  <meta property="article:author" content="Manuel 'Sputnick' Nickschas">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Quassel IRC">
+<meta property="og:title" content="A Candidate Long in the Making - Quassel 0.13-rc1">
+<meta property="og:url" content="https://quassel-irc.org/2018/07/a-candidate-long-in-the-making-quassel-0-13-rc1/">
+
+
+  <meta property="og:description" content="Hi all,  more than three years since 0.12.0 was released, and over 500 commits on top of what went into the current stable branch, we’re finally in the last stretch of the next major feature release!  Since so much work and changes went into this, this time we’ve decided to not only roll a release candidate, but also announce it publicly, so daring people can test things before final release.  Some caveats upfront: Both the database schema and the config file formats have been updated since 0.12. Quassel will automatically upgrade both once the new version is started for the first time, however no rollback is possible, so do make a backup! Also the upgrade may take a long time (several hours) if your database is (un)reasonably large, during which the core or mono client cannot be used. The upgrade may also temporarily require up to double the disk space. Do not interrupt the upgrade process, otherwise your database may become corrupted!  Nevertheless, the Quassel protocol between remote cores and clients still is backwards-compatible all the way down to 0.5.0, which was released in 2009. While you may not be able to use all the newer features when connecting to older versions, things still work, and there is no need to upgrade both ends at the same time.  This is also a call for translators. If you’d like to improve the localization of Quassel in your language, please head over to Transifex and contribute. We’ll merge back the updated translations shortly before final release of 0.13.0.  Too many changes went into this release to be able to list them all (have a look at the ChangeLog for a reasonable overview), but here are some highlights:     New branding, more modern icons (from the Breeze icon theme)   Better support for icon themes   Many UI improvements   Support for many IRCv3 features, including the display of modern formatting codes   Functionality such as highlights and chat activity tracking move into the core to help mobile clients to be more efficient   Support for containerization, i.e. config-less core   Optional authentication via LDAP   Database improvements, including support for 64 bit IDs and timestamps, and performance tweaks -… and much more!   The usual packages are available for download now:    Source tarball   OSX core, standalone client, monolithic client   Windows installer (32 bit, 64 bit) containing core, client and the standalone client   We’re discontinuing the pseudo-static core, because creating static binaries that run on most platforms becomes increasingly fragile; bundling things like OpenSSL also introduces security risks, since the bundled version will not be updated with the system. Additionally, our binary packages for OSX and Windows do not support the PostgreSQL database backend for the core due to limitations in our build environments, as well as lack of demand.  Do let us know if you run into issues or regressions. Otherwise, we’re expecting a final release in the coming weeks!  NOTE: As announced several times already, 0.13.0 will be the last feature release still supporting Qt4 and KDE4. We’ll significantly bump the build and runtime requirements for future releases in order to be able to modernize the code base. Planned baseline for 0.14 onwards is Ubuntu 16.04 “Xenial”, as well as reasonable recent toolchains for OSX and Windows.  That’s it for now!  Always yours, ~ Sput">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2018-07-25T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://quassel-irc.org/2018/07/a-candidate-long-in-the-making-quassel-0-13-rc1/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Quassel Project",
+      "url": "https://quassel-irc.org/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Quassel IRC Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/masthead-logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Quassel IRC
+          <span class="site-subtitle">Chat comfortably, everywhere.</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Manuel 'Sputnick' Nickschas</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Core Developer</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Germany</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/quassel/quassel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:sputnick <at> quassel-irc.org">
+            <meta itemprop="email" content="sputnick <at> quassel-irc.org" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="A Candidate Long in the Making - Quassel 0.13-rc1">
+    <meta itemprop="description" content="Hi all,more than three years since 0.12.0 was released, and over 500 commits on top of what went into the current stable branch, we’re finally in the last stretch of the next major feature release!Since so much work and changes went into this, this time we’ve decided to not only roll a release candidate, but also announce it publicly, so daring people can test things before final release.Some caveats upfront: Both the database schema and the config file formats have been updated since 0.12. Quassel will automatically upgrade both once the new version is started for the first time, however no rollback is possible, so do make a backup! Also the upgrade may take a long time (several hours) if your database is (un)reasonably large, during which the core or mono client cannot be used. The upgrade may also temporarily require up to double the disk space. Do not interrupt the upgrade process, otherwise your database may become corrupted!Nevertheless, the Quassel protocol between remote cores and clients still is backwards-compatible all the way down to 0.5.0, which was released in 2009. While you may not be able to use all the newer features when connecting to older versions, things still work, and there is no need to upgrade both ends at the same time.This is also a call for translators. If you’d like to improve the localization of Quassel in your language, please head over to Transifex and contribute. We’ll merge back the updated translations shortly before final release of 0.13.0.Too many changes went into this release to be able to list them all (have a look at the ChangeLog for a reasonable overview), but here are some highlights:  New branding, more modern icons (from the Breeze icon theme)  Better support for icon themes  Many UI improvements  Support for many IRCv3 features, including the display of modern formatting codes  Functionality such as highlights and chat activity tracking move into the core to help mobile clients to be more efficient  Support for containerization, i.e. config-less core  Optional authentication via LDAP  Database improvements, including support for 64 bit IDs and timestamps, and performance tweaks-… and much more!The usual packages are available for download now:  Source tarball  OSX core, standalone client, monolithic client  Windows installer (32 bit, 64 bit) containing core, client and the standalone clientWe’re discontinuing the pseudo-static core, because creating static binaries that run on most platforms becomes increasingly fragile; bundling things like OpenSSL also introduces security risks, since the bundled version will not be updated with the system. Additionally, our binary packages for OSX and Windows do not support the PostgreSQL database backend for the core due to limitations in our build environments, as well as lack of demand.Do let us know if you run into issues or regressions. Otherwise, we’re expecting a final release in the coming weeks!NOTE: As announced several times already, 0.13.0 will be the last feature release still supporting Qt4 and KDE4. We’ll significantly bump the build and runtime requirements for future releases in order to be able to modernize the code base. Planned baseline for 0.14 onwards is Ubuntu 16.04 “Xenial”, as well as reasonable recent toolchains for OSX and Windows.That’s it for now!Always yours,~ Sput">
+    <meta itemprop="datePublished" content="2018-07-25T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">A Candidate Long in the Making - Quassel 0.13-rc1
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Hi all,</p>
+
+<p>more than three years since 0.12.0 was released, and over 500 commits on top of what went into the current stable branch, we’re finally in the last stretch of the next major feature release!</p>
+
+<p>Since so much work and <a href="https://github.com/quassel/quassel/blob/0.13-rc1/ChangeLog#L16">changes</a> went into this, this time we’ve decided to not only roll a release candidate, but also announce it publicly, so daring people can test things before final release.</p>
+
+<p>Some caveats upfront: Both the database schema and the config file formats have been updated since 0.12. Quassel will automatically upgrade both once the new version is started for the first time, however <strong>no rollback is possible</strong>, so do make a backup! Also the upgrade may take a <em>long</em> time (several hours) if your database is (un)reasonably large, during which the core or mono client cannot be used. The upgrade may also temporarily require up to double the disk space. Do not interrupt the upgrade process, otherwise your database may become corrupted!</p>
+
+<p>Nevertheless, the Quassel protocol between remote cores and clients still is backwards-compatible all the way down to 0.5.0, which was released in 2009. While you may not be able to use all the newer features when connecting to older versions, things still work, and there is no need to upgrade both ends at the same time.</p>
+
+<p>This is also a <strong>call for translators</strong>. If you’d like to improve the localization of Quassel in your language, please head over to <a href="https://www.transifex.com/quassel/quassel/">Transifex</a> and contribute. We’ll merge back the updated translations shortly before final release of 0.13.0.</p>
+
+<p>Too many changes went into this release to be able to list them all (have a look at the <a href="https://github.com/quassel/quassel/blob/0.13-rc1/ChangeLog#L16">ChangeLog</a> for a reasonable overview), but here are some highlights:</p>
+
+<ul>
+  <li>New branding, more modern icons (from the Breeze icon theme)</li>
+  <li>Better support for icon themes</li>
+  <li>Many UI improvements</li>
+  <li>Support for many IRCv3 features, including the display of modern formatting codes</li>
+  <li>Functionality such as highlights and chat activity tracking move into the core to help <a href="https://quasseldroid.info/">mobile clients</a> to be more efficient</li>
+  <li>Support for containerization, i.e. config-less core</li>
+  <li>Optional authentication via LDAP</li>
+  <li>Database improvements, including support for 64 bit IDs and timestamps, and performance tweaks
+-… and much more!</li>
+</ul>
+
+<p>The usual packages are available for download now:</p>
+<ul>
+  <li><a href="/pub/quassel-0.13-rc1.tar.bz2">Source tarball</a></li>
+  <li>OSX <a href="/pub/QuasselCore_MacOSX-x86_64_0.13-rc1.dmg">core</a>, <a href="/pub/QuasselClient_MacOSX-x86_64_0.13-rc1.dmg">standalone client</a>, <a href="/pub/QuasselCore_MacOSX-x86_64_0.13-rc1.dmg">monolithic client</a></li>
+  <li>Windows installer (<a href="/pub/quassel-x86-setup-0.13-rc1.exe">32 bit</a>, <a href="/pub/quassel-x64-setup-0.13-rc1.exe">64 bit</a>) containing core, client and the standalone client</li>
+</ul>
+
+<p>We’re discontinuing the pseudo-static core, because creating static binaries that run on most platforms becomes increasingly fragile; bundling things like OpenSSL also introduces security risks, since the bundled version will not be updated with the system. Additionally, our binary packages for OSX and Windows do not support the PostgreSQL database backend for the core due to limitations in our build environments, as well as lack of demand.</p>
+
+<p>Do let us know if you run into issues or regressions. Otherwise, we’re expecting a final release in the coming weeks!</p>
+
+<p><strong>NOTE:</strong> As announced several times already, 0.13.0 will be the last feature release still supporting Qt4 and KDE4. We’ll significantly bump the build and runtime requirements for future releases in order to be able to modernize the code base. Planned baseline for 0.14 onwards is Ubuntu 16.04 “Xenial”, as well as reasonable recent toolchains for OSX and Windows.</p>
+
+<p>That’s it for now!</p>
+
+<p>Always yours,<br />
+~ Sput</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/prerelease" class="page__taxonomy-item" rel="tag">prerelease</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-07-25T00:00:00+00:00">July 25, 2018</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/2018/04/two-years-quassel-0-12-5/" class="pagination--pager" title="Two Years!? - Quassel 0.12.5
+">Previous</a>
+    
+    
+      <a href="/2018/10/the-final-stretch-quassel-0-13-rc2/" class="pagination--pager" title="The Final Stretch - Quassel 0.13-rc2
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/quassel/quassel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Quassel Project. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

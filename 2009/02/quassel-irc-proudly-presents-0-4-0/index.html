@@ -1,0 +1,432 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Quassel IRC Proudly Presents: 0.4.0! - Quassel IRC</title>
+<meta name="description" content="After about three months of hard work, the Quassel Team has tagged the brand-new and extra-shiny 0.4.0 release for you! And for extra convenience, we even have updated our downloads page! To reach this important milestone, 432 commits went into Git since 0.3.1.  As usual, you can find most features we have added in the FeatureLog, and if you are really interested, you can peruse the Git history. Let me highlight the most important things right here though.    KDE integration. Yes, Quassel finally gained support for integrating into KDE4! Most notably, this means that your style, icon theme and colorscheme should be picked up correctly, and Quassel uses the KDE notification system for highlights. Note that, if you compile Quassel yourself, you need to pass -DWITH_KDE=1 to cmake to enable this. Note also that KDE4 support is optional, and will always be optional, so if you don&#39;t use KDE4, have no fear :) Many usability and UI improvements all over the place. Things like context menus in the chat window and channel lists, clickable URLs, improved dialogs, streamlined default settings, and much more. Kubuntu provided us with invaluable feedback in order to make Quassel IRC suitable for IRC novices. Their push to use Quassel as their default IRC client, intended as a primary support tool, certainly motivated us to tackle many of the usability issues we had ignored earlier :) Streamlined monolithic client. While the monolithic client, combining client and core in one binary, has always (yes, always!) been around, it was disabled by default until recently. The main reason for this was the fact that it was awkward to use and confusing to users; before the 0.3.1 release, you actually had to configure a core connection to localhost, and in 0.3.1, you still had to start the internal core by pressing a button in the core connection dialog. With 0.4.0, the monolithic client completely hides the client/core concept from the user, making Quassel act like a traditional, non-distributed IRC client. Unfortunately, for now you cannot use the monolithic client for connecting to a remote core. This functionality will be back in a later release; for now, you need to use quasselclient instead. Gorgeous new artwork. Nuno Pinheiro of Oxygen fame has provided us with a shiny new application icon, animations for the system tray icon, plus a bunch of irc-related actions. We have added new icons to the nick and channel lists and in other places too. So Quassel now looks a whole lot nicer than it used to ;-) Improved SSL support. Quassel now supports certificate handling for both the client/core and the core/IRC connections. You can now also use certificate-based authentication for IRC networks supporting it, such as OFTC. Centralized data and config storage. We are now storing all configuration and backlog data in one place, rather than scattering it in several directories or the registry. See this blog entry for details. Note that while your data should be migrated automatically, it might sometimes not. So if your Quassel complains about missing configuration, or wants to start with a blank database, be sure to first check for this!   A note to translators: We couldn’t impose a string freeze for the 0.4.0 release, as we were working on the UI until the last minute, and we had a pressing deadline this time to meet Kubuntu Jaunty’s feature freeze. We consider the 0.4 branch stable now in terms of strings (i.e., we don’t expect changing strings around there in the future), so please send in updated translations for 0.4 now! We will collect them and release a 0.4.1 containing them later on.  A note to distro packagers: We have created a 0.4 branch now that will see important bugfixes backported, but no new features. If your distro has version freezes, packaging 0.4 is what you want. Note that 0.3.0.x is now officially unmaintained, and since 0.3.1 was a transient release without backport support, there will be no more 0.3.x releases.  That’s it for now. Be sure to get the new release as long as it’s still fresh and tasty, and start looking forward to a plethora of new features to be implemented in the 0.5 release cycle :)">
+
+
+  <meta name="author" content="Manuel 'Sputnick' Nickschas">
+  
+  <meta property="article:author" content="Manuel 'Sputnick' Nickschas">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Quassel IRC">
+<meta property="og:title" content="Quassel IRC Proudly Presents: 0.4.0!">
+<meta property="og:url" content="https://quassel-irc.org/2009/02/quassel-irc-proudly-presents-0-4-0/">
+
+
+  <meta property="og:description" content="After about three months of hard work, the Quassel Team has tagged the brand-new and extra-shiny 0.4.0 release for you! And for extra convenience, we even have updated our downloads page! To reach this important milestone, 432 commits went into Git since 0.3.1.  As usual, you can find most features we have added in the FeatureLog, and if you are really interested, you can peruse the Git history. Let me highlight the most important things right here though.    KDE integration. Yes, Quassel finally gained support for integrating into KDE4! Most notably, this means that your style, icon theme and colorscheme should be picked up correctly, and Quassel uses the KDE notification system for highlights. Note that, if you compile Quassel yourself, you need to pass -DWITH_KDE=1 to cmake to enable this. Note also that KDE4 support is optional, and will always be optional, so if you don&#39;t use KDE4, have no fear :) Many usability and UI improvements all over the place. Things like context menus in the chat window and channel lists, clickable URLs, improved dialogs, streamlined default settings, and much more. Kubuntu provided us with invaluable feedback in order to make Quassel IRC suitable for IRC novices. Their push to use Quassel as their default IRC client, intended as a primary support tool, certainly motivated us to tackle many of the usability issues we had ignored earlier :) Streamlined monolithic client. While the monolithic client, combining client and core in one binary, has always (yes, always!) been around, it was disabled by default until recently. The main reason for this was the fact that it was awkward to use and confusing to users; before the 0.3.1 release, you actually had to configure a core connection to localhost, and in 0.3.1, you still had to start the internal core by pressing a button in the core connection dialog. With 0.4.0, the monolithic client completely hides the client/core concept from the user, making Quassel act like a traditional, non-distributed IRC client. Unfortunately, for now you cannot use the monolithic client for connecting to a remote core. This functionality will be back in a later release; for now, you need to use quasselclient instead. Gorgeous new artwork. Nuno Pinheiro of Oxygen fame has provided us with a shiny new application icon, animations for the system tray icon, plus a bunch of irc-related actions. We have added new icons to the nick and channel lists and in other places too. So Quassel now looks a whole lot nicer than it used to ;-) Improved SSL support. Quassel now supports certificate handling for both the client/core and the core/IRC connections. You can now also use certificate-based authentication for IRC networks supporting it, such as OFTC. Centralized data and config storage. We are now storing all configuration and backlog data in one place, rather than scattering it in several directories or the registry. See this blog entry for details. Note that while your data should be migrated automatically, it might sometimes not. So if your Quassel complains about missing configuration, or wants to start with a blank database, be sure to first check for this!   A note to translators: We couldn’t impose a string freeze for the 0.4.0 release, as we were working on the UI until the last minute, and we had a pressing deadline this time to meet Kubuntu Jaunty’s feature freeze. We consider the 0.4 branch stable now in terms of strings (i.e., we don’t expect changing strings around there in the future), so please send in updated translations for 0.4 now! We will collect them and release a 0.4.1 containing them later on.  A note to distro packagers: We have created a 0.4 branch now that will see important bugfixes backported, but no new features. If your distro has version freezes, packaging 0.4 is what you want. Note that 0.3.0.x is now officially unmaintained, and since 0.3.1 was a transient release without backport support, there will be no more 0.3.x releases.  That’s it for now. Be sure to get the new release as long as it’s still fresh and tasty, and start looking forward to a plethora of new features to be implemented in the 0.5 release cycle :)">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2009-02-19T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://quassel-irc.org/2009/02/quassel-irc-proudly-presents-0-4-0/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Quassel Project",
+      "url": "https://quassel-irc.org/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Quassel IRC Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/masthead-logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Quassel IRC
+          <span class="site-subtitle">Chat comfortably, everywhere.</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Manuel 'Sputnick' Nickschas</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Core Developer</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Germany</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/quassel/quassel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:sputnick <at> quassel-irc.org">
+            <meta itemprop="email" content="sputnick <at> quassel-irc.org" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Quassel IRC Proudly Presents: 0.4.0!">
+    <meta itemprop="description" content="After about three months of hard work, the Quassel Team has tagged the brand-new and extra-shiny 0.4.0 release for you! And for extra convenience, we even have updated our downloads page! To reach this important milestone, 432 commits went into Git since 0.3.1.As usual, you can find most features we have added in the FeatureLog, and if you are really interested, you can peruse the Git history. Let me highlight the most important things right here though.KDE integration. Yes, Quassel finally gained support for integrating into KDE4! Most notably, this means that your style, icon theme and colorscheme should be picked up correctly, and Quassel uses the KDE notification system for highlights. Note that, if you compile Quassel yourself, you need to pass -DWITH_KDE=1 to cmake to enable this. Note also that KDE4 support is optional, and will always be optional, so if you don&#39;t use KDE4, have no fear :)Many usability and UI improvements all over the place. Things like context menus in the chat window and channel lists, clickable URLs, improved dialogs, streamlined default settings, and much more. Kubuntu provided us with invaluable feedback in order to make Quassel IRC suitable for IRC novices. Their push to use Quassel as their default IRC client, intended as a primary support tool, certainly motivated us to tackle many of the usability issues we had ignored earlier :)Streamlined monolithic client. While the monolithic client, combining client and core in one binary, has always (yes, always!) been around, it was disabled by default until recently. The main reason for this was the fact that it was awkward to use and confusing to users; before the 0.3.1 release, you actually had to configure a core connection to localhost, and in 0.3.1, you still had to start the internal core by pressing a button in the core connection dialog. With 0.4.0, the monolithic client completely hides the client/core concept from the user, making Quassel act like a traditional, non-distributed IRC client. Unfortunately, for now you cannot use the monolithic client for connecting to a remote core. This functionality will be back in a later release; for now, you need to use quasselclient instead.Gorgeous new artwork. Nuno Pinheiro of Oxygen fame has provided us with a shiny new application icon, animations for the system tray icon, plus a bunch of irc-related actions. We have added new icons to the nick and channel lists and in other places too. So Quassel now looks a whole lot nicer than it used to ;-)Improved SSL support. Quassel now supports certificate handling for both the client/core and the core/IRC connections. You can now also use certificate-based authentication for IRC networks supporting it, such as OFTC.Centralized data and config storage. We are now storing all configuration and backlog data in one place, rather than scattering it in several directories or the registry. See this blog entry for details. Note that while your data should be migrated automatically, it might sometimes not. So if your Quassel complains about missing configuration, or wants to start with a blank database, be sure to first check for this!A note to translators: We couldn’t impose a string freeze for the 0.4.0 release, as we were working on the UI until the last minute, and we had a pressing deadline this time to meet Kubuntu Jaunty’s feature freeze. We consider the 0.4 branch stable now in terms of strings (i.e., we don’t expect changing strings around there in the future), so please send in updated translations for 0.4 now! We will collect them and release a 0.4.1 containing them later on.A note to distro packagers: We have created a 0.4 branch now that will see important bugfixes backported, but no new features. If your distro has version freezes, packaging 0.4 is what you want. Note that 0.3.0.x is now officially unmaintained, and since 0.3.1 was a transient release without backport support, there will be no more 0.3.x releases.That’s it for now. Be sure to get the new release as long as it’s still fresh and tasty, and start looking forward to a plethora of new features to be implemented in the 0.5 release cycle :)">
+    <meta itemprop="datePublished" content="2009-02-19T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Quassel IRC Proudly Presents: 0.4.0!
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>After about three months of hard work, the Quassel Team has tagged the brand-new and extra-shiny 0.4.0 release for you! And for extra convenience, we even have updated our <a href="/downloads">downloads page!</a> To reach this important milestone, 432 commits went into Git since 0.3.1.</p>
+
+<p>As usual, you can find most features we have added in the <a href="/pub/ChangeLog">FeatureLog</a>, and if you are <em>really</em> interested, you can peruse the <a href="http://git.quassel-irc.org/?p=quassel.git;a=shortlog;h=refs/heads/0.4">Git history</a>. Let me highlight the most important things right here though.
+<!--break--></p>
+
+<ul>
+<li><b>KDE integration.</b> Yes, Quassel finally gained support for integrating into KDE4! Most notably, this means that your style, icon theme and colorscheme should be picked up correctly, and Quassel uses the KDE notification system for highlights. Note that, if you compile Quassel yourself, you need to pass -DWITH_KDE=1 to cmake to enable this. Note also that KDE4 support is optional, and will always be optional, so if you don't use KDE4, have no fear :)</li>
+<li><b>Many usability and UI improvements all over the place.</b> Things like context menus in the chat window and channel lists, clickable URLs, improved dialogs, streamlined default settings, and much more. Kubuntu provided us with <a href="http://quassel-irc.org/node/93">invaluable feedback</a> in order to make Quassel IRC suitable for IRC novices. Their push to use Quassel as their default IRC client, intended as a primary support tool, certainly motivated us to tackle many of the usability issues we had ignored earlier :)</li>
+<li><b>Streamlined monolithic client.</b> While the monolithic client, combining client and core in one binary, has always (yes, always!) been around, it was disabled by default until recently. The main reason for this was the fact that it was awkward to use and confusing to users; before the 0.3.1 release, you actually had to configure a core connection to localhost, and in 0.3.1, you still had to start the internal core by pressing a button in the core connection dialog. With 0.4.0, the monolithic client completely hides the client/core concept from the user, making Quassel act like a traditional, non-distributed IRC client. Unfortunately, for now you cannot use the monolithic client for connecting to a remote core. This functionality will be back in a later release; for now, you need to use quasselclient instead.</li>
+<li><b>Gorgeous new artwork.</b> <a href="http://pinheiro-kde.blogspot.com/">Nuno Pinheiro</a> of <a href="http://www.oxygen-icons.org">Oxygen</a> fame has provided us with a shiny new application icon, animations for the system tray icon, plus a bunch of irc-related actions. We have added new icons to the nick and channel lists and in other places too. So Quassel now looks a whole lot nicer than it used to ;-)</li>
+<li><b>Improved SSL support.</b> Quassel now supports certificate handling for both the client/core and the core/IRC connections. You can now also use certificate-based authentication for IRC networks supporting it, such as OFTC.</li>
+<li><b>Centralized data and config storage.</b> We are now storing all configuration and backlog data in one place, rather than scattering it in several directories or the registry. See <a href="/node/96">this blog entry</a> for details. Note that while your data should be migrated automatically, it might sometimes not. So if your Quassel complains about missing configuration, or wants to start with a blank database, be sure to first check for this!</li>
+</ul>
+
+<p><b>A note to translators:</b> We couldn’t impose a string freeze for the 0.4.0 release, as we were working on the UI until the last minute, and we had a pressing deadline this time to meet Kubuntu Jaunty’s feature freeze. We consider the 0.4 branch stable now in terms of strings (i.e., we don’t expect changing strings around there in the future), so please send in updated translations for 0.4 now! We will collect them and release a 0.4.1 containing them later on.</p>
+
+<p><b>A note to distro packagers:</b> We have created a 0.4 branch now that will see important bugfixes backported, but no new features. If your distro has version freezes, packaging 0.4 is what you want. Note that 0.3.0.x is now officially unmaintained, and since 0.3.1 was a transient release without backport support, there will be no more 0.3.x releases.</p>
+
+<p>That’s it for now. Be sure to get the new release as long as it’s still fresh and tasty, and start looking forward to a plethora of new features to be implemented in the 0.5 release cycle :)</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/release" class="page__taxonomy-item" rel="tag">release</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2009-02-19T00:00:00+00:00">February 19, 2009</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/2009/02/the-world-in-a-donut/" class="pagination--pager" title="The World in a Donut
+">Previous</a>
+    
+    
+      <a href="/2009/03/fixing-teh-bugz-0-4-1-released/" class="pagination--pager" title="Fixing teh bugz: 0.4.1 released
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/quassel/quassel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Quassel Project. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

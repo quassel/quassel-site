@@ -1,0 +1,429 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Two Years!? - Quassel 0.12.5 - Quassel IRC</title>
+<meta name="description" content="Hi all,  yes, it’s been exactly two years today since 0.12.4 was tagged… Even though development speed has picked up again recently (mostly thanks to some very active new and old contributors, and only to a small degree thanks to myself), and several hundred commits have gone into the main development branch since 0.12 was forked away, we’re still some weeks away from a new feature release.  However, chaign_c has recently discovered two vulnerabilites in the 0.12.4 core, so a new maintenance release is warranted (and an immediate upgrade of 0.12.4 cores is highly recommended!). Since it has been so long since the last release, we’ve decided to backport over a hundred commits worth of bugfixes and quality-of-life improvements to make upgrading worth your while. Go grab Quassel 0.12.5 from the downloads page!  Following our usual policy, we did not change the config file format nor the database schema compared to previous 0.12.x releases, and we avoided string and UI changes. Thus, upgrading should be safe, and going back to a previous 0.12.x release is possible in case anything goes wrong anyway. Please have a look at the ChangeLog for a list of major things that went into this release, or check out the full list of commits since the last release.  I’d like to use this opportunity to thank all contributors who keep Quassel alive and kicking despite my own lack of time, be it by providing pull requests, community support, translations, testing, or just being active in our IRC channels. For this release, I want to particularly express my thanks to Janne “justJanne” Koschinski, Michael “mamarley” Marley and Shane “digitalcircuit” Synan for their timely support in handling the afforementioned vulnerabilities so professionally, both providing fixes and very thorough testing! You rock!  Next stop (hopefully): Quassel 0.13. As announced, well, two years ago, this will be our last release still supporting Qt 4 and KDE 4. Afterwards, we’ll also bump our build requirements significantly.  Until then, all the best, ~ Sput">
+
+
+  <meta name="author" content="Manuel 'Sputnick' Nickschas">
+  
+  <meta property="article:author" content="Manuel 'Sputnick' Nickschas">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Quassel IRC">
+<meta property="og:title" content="Two Years!? - Quassel 0.12.5">
+<meta property="og:url" content="https://quassel-irc.org/2018/04/two-years-quassel-0-12-5/">
+
+
+  <meta property="og:description" content="Hi all,  yes, it’s been exactly two years today since 0.12.4 was tagged… Even though development speed has picked up again recently (mostly thanks to some very active new and old contributors, and only to a small degree thanks to myself), and several hundred commits have gone into the main development branch since 0.12 was forked away, we’re still some weeks away from a new feature release.  However, chaign_c has recently discovered two vulnerabilites in the 0.12.4 core, so a new maintenance release is warranted (and an immediate upgrade of 0.12.4 cores is highly recommended!). Since it has been so long since the last release, we’ve decided to backport over a hundred commits worth of bugfixes and quality-of-life improvements to make upgrading worth your while. Go grab Quassel 0.12.5 from the downloads page!  Following our usual policy, we did not change the config file format nor the database schema compared to previous 0.12.x releases, and we avoided string and UI changes. Thus, upgrading should be safe, and going back to a previous 0.12.x release is possible in case anything goes wrong anyway. Please have a look at the ChangeLog for a list of major things that went into this release, or check out the full list of commits since the last release.  I’d like to use this opportunity to thank all contributors who keep Quassel alive and kicking despite my own lack of time, be it by providing pull requests, community support, translations, testing, or just being active in our IRC channels. For this release, I want to particularly express my thanks to Janne “justJanne” Koschinski, Michael “mamarley” Marley and Shane “digitalcircuit” Synan for their timely support in handling the afforementioned vulnerabilities so professionally, both providing fixes and very thorough testing! You rock!  Next stop (hopefully): Quassel 0.13. As announced, well, two years ago, this will be our last release still supporting Qt 4 and KDE 4. Afterwards, we’ll also bump our build requirements significantly.  Until then, all the best, ~ Sput">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2018-04-24T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://quassel-irc.org/2018/04/two-years-quassel-0-12-5/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Quassel Project",
+      "url": "https://quassel-irc.org/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Quassel IRC Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/masthead-logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Quassel IRC
+          <span class="site-subtitle">Chat comfortably, everywhere.</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Manuel 'Sputnick' Nickschas</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Core Developer</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Germany</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/quassel/quassel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:sputnick <at> quassel-irc.org">
+            <meta itemprop="email" content="sputnick <at> quassel-irc.org" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Two Years!? - Quassel 0.12.5">
+    <meta itemprop="description" content="Hi all,yes, it’s been exactly two years today since 0.12.4 was tagged… Even though development speed has picked up again recently (mostly thanks to some very active new and old contributors, and only to a small degree thanks to myself), and several hundred commits have gone into the main development branch since 0.12 was forked away, we’re still some weeks away from a new feature release.However, chaign_c has recently discovered two vulnerabilites in the 0.12.4 core, so a new maintenance release is warranted (and an immediate upgrade of 0.12.4 cores is highly recommended!). Since it has been so long since the last release, we’ve decided to backport over a hundred commits worth of bugfixes and quality-of-life improvements to make upgrading worth your while. Go grab Quassel 0.12.5 from the downloads page!Following our usual policy, we did not change the config file format nor the database schema compared to previous 0.12.x releases, and we avoided string and UI changes. Thus, upgrading should be safe, and going back to a previous 0.12.x release is possible in case anything goes wrong anyway. Please have a look at the ChangeLog for a list of major things that went into this release, or check out the full list of commits since the last release.I’d like to use this opportunity to thank all contributors who keep Quassel alive and kicking despite my own lack of time, be it by providing pull requests, community support, translations, testing, or just being active in our IRC channels. For this release, I want to particularly express my thanks to Janne “justJanne” Koschinski, Michael “mamarley” Marley and Shane “digitalcircuit” Synan for their timely support in handling the afforementioned vulnerabilities so professionally, both providing fixes and very thorough testing! You rock!Next stop (hopefully): Quassel 0.13. As announced, well, two years ago, this will be our last release still supporting Qt 4 and KDE 4. Afterwards, we’ll also bump our build requirements significantly.Until then, all the best,~ Sput">
+    <meta itemprop="datePublished" content="2018-04-24T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Two Years!? - Quassel 0.12.5
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Hi all,</p>
+
+<p>yes, it’s been exactly two years today since 0.12.4 was tagged… Even though development speed has picked up again recently (mostly thanks to some very active new and old contributors, and only to a small degree thanks to myself), and several hundred commits have gone into the main development branch since 0.12 was forked away, we’re still some weeks away from a new feature release.</p>
+
+<p>However, <a href="https://twitter.com/chaign_c/">chaign_c</a> has recently discovered two vulnerabilites in the 0.12.4 core, so <a href="/pub/quassel-0.12.5.tar.bz2">a new maintenance release</a> is warranted (and an immediate upgrade of 0.12.4 cores is highly recommended!). Since it has been so long since the last release, we’ve decided to backport over a hundred commits worth of bugfixes and quality-of-life improvements to make upgrading worth your while. Go grab Quassel 0.12.5 from the <a href="/downloads">downloads page<a>!</a></a></p>
+
+<p>Following our usual policy, we did not change the config file format nor the database schema compared to previous 0.12.x releases, and we avoided string and UI changes. Thus, upgrading should be safe, and going back to a previous 0.12.x release is possible in case anything goes wrong anyway. Please have a look at the <a href="https://github.com/quassel/quassel/blob/0.12.5/ChangeLog#L16">ChangeLog</a> for a list of major things that went into this release, or check out the <a href="https://github.com/quassel/quassel/compare/0.12.4...0.12.5">full list of commits</a> since the last release.</p>
+
+<p>I’d like to use this opportunity to thank all contributors who keep Quassel alive and kicking despite my own lack of time, be it by providing pull requests, community support, translations, testing, or just being active in our IRC channels. For this release, I want to particularly express my thanks to <a href="https://github.com/justjanne">Janne “justJanne” Koschinski</a>, <a href="https://github.com/mamarley">Michael “mamarley” Marley</a> and <a href="https://github.com/digitalcircuit">Shane “digitalcircuit” Synan</a> for their timely support in handling the afforementioned vulnerabilities so professionally, both providing fixes and very thorough testing! You rock!</p>
+
+<p>Next stop (hopefully): Quassel 0.13. As announced, well, two years ago, this will be our last release still supporting Qt 4 and KDE 4. Afterwards, we’ll also bump our build requirements significantly.</p>
+
+<p>Until then, all the best,<br />
+~ Sput</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/release" class="page__taxonomy-item" rel="tag">release</a><span class="sep">, </span>
+    
+      <a href="/tags/security" class="page__taxonomy-item" rel="tag">security</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-04-24T00:00:00+00:00">April 24, 2018</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/2016/05/fixing-bugs-quassel-0-12-4/" class="pagination--pager" title="Fixing Bugs - Quassel 0.12.4
+">Previous</a>
+    
+    
+      <a href="/2018/07/a-candidate-long-in-the-making-quassel-0-13-rc1/" class="pagination--pager" title="A Candidate Long in the Making - Quassel 0.13-rc1
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/quassel/quassel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Quassel Project. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

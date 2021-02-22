@@ -1,0 +1,444 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Good News Everyone: Presenting Quassel 0.5.0! - Quassel IRC</title>
+<meta name="description" content="It’s been a while that we have announced a new release. Somehow, 0.4.2 and 0.4.3 never made it to the frontpage… Anyway, we haven’t been lazy and quietly worked on bringing you a brand new feature release: quassel-0.5.0!  You can find most features we have added in the FeatureLog, and if you are really interested, you can also browse the Git history. A list of the most important things has been added below for your convenience. First though I want to get a few important notes out:  Client/Core protocol, database schema and config file update: As mentioned before, a 0.5 Quassel Core will not work with a 0.4 client and vice versa. You will have to update both components. First time you run a 0.5 core or client, the config files and database will automatically be updated to the new format. Downgrades are not supported, so do make a backup if you intend to go back to 0.4 afterwards!  A note for distro packagers: We will maintain a 0.5 branch in our repository that will receive important bugfixes, but no new features. We will probably also do periodic 0.5.x releases from this branch, while new and shiny stuff is being added to the master branch. If you maintain Quassel on a distro that suffers from version or feature freezes, you should make sure to track the 0.5 branch instead.  Read on for a short list of the most important features, then head over to the downloads page to grab it while it’s still sizzling!    PostgreSQL Support. In addition to SQLite, the core now also supports using a postgres database for storage. This is recommended in particular if you run Quassel core with several users, as SQLite tends to get slow then. Run quasselcore --help for information about how to switch (your data will be automatically migrated to the new backend if you select it).  /exec Support. This allows for running external scripts or programs and piping their output into IRC. For Linux, we provide a sysinfo script (/exec inxi) and a now-playing script for MPRIS-compliant media players such as amarok (/exec mpris amarok).  Ignore List. Yes, finally you can get rid of all the trolls (no, I don&#39;t mean you, Nokia Trolls! ;-)… either dynamically (so you can retroactively show them again) or permanently (in which case they won&#39;t get into your database at all).  Multiline Input. A long requested feature that allows you to have multiple lines in your input field and edit them before sending them off all at once. Press Shift+Enter to start a new line, or paste something with more than one line into the input field.  Smart Nick Completion. Quassel will now prefer users that have last talked in a channel, instead of going through the nicknames alphabetically. This should greatly reduce &quot;mis-tabbings&quot; ;-)  Full Stylesheet-Based Styling. We have extended support for Qt stylesheets (QSS) to allow extensive styling of the chat window. As an example (and for getting back the nice and colorful appearance we had in prior versions of Quassel), you can select the m4yer.qss stylesheet that should be installed in your data dir. We will work on improving this feature in future versions, and also document how it works soon.  Usability Improvements. Most notably, we have renamed all occurences of &quot;Buffer&quot; to &quot;Chat&quot;, so instead of Buffer Views, we now have Chat Lists. This has been done because users not familiar with curses-based IRC clients (or Emacs) were getting confused with the term &quot;Buffer&quot;. In addition, we have redesigned and reorganized more configuration dialogs, and removed the dreaded color settingspage.  Performance Improvements. Ever had trouble with Quassel Core taking minutes for starting up or shutting down? Ever noticed that joining or leaving a large channel could stall both client and core for ages? This has been fixed thanks to an improved client/core synchronization protocol.  For a more complete list of new stuff, please have a look at the afforementioned resources, or just try it out yourself!  ~ Sputnick out.">
+
+
+  <meta name="author" content="Manuel 'Sputnick' Nickschas">
+  
+  <meta property="article:author" content="Manuel 'Sputnick' Nickschas">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Quassel IRC">
+<meta property="og:title" content="Good News Everyone: Presenting Quassel 0.5.0!">
+<meta property="og:url" content="https://quassel-irc.org/2009/10/good-news-everyone-presenting-quassel-0-5-0/">
+
+
+  <meta property="og:description" content="It’s been a while that we have announced a new release. Somehow, 0.4.2 and 0.4.3 never made it to the frontpage… Anyway, we haven’t been lazy and quietly worked on bringing you a brand new feature release: quassel-0.5.0!  You can find most features we have added in the FeatureLog, and if you are really interested, you can also browse the Git history. A list of the most important things has been added below for your convenience. First though I want to get a few important notes out:  Client/Core protocol, database schema and config file update: As mentioned before, a 0.5 Quassel Core will not work with a 0.4 client and vice versa. You will have to update both components. First time you run a 0.5 core or client, the config files and database will automatically be updated to the new format. Downgrades are not supported, so do make a backup if you intend to go back to 0.4 afterwards!  A note for distro packagers: We will maintain a 0.5 branch in our repository that will receive important bugfixes, but no new features. We will probably also do periodic 0.5.x releases from this branch, while new and shiny stuff is being added to the master branch. If you maintain Quassel on a distro that suffers from version or feature freezes, you should make sure to track the 0.5 branch instead.  Read on for a short list of the most important features, then head over to the downloads page to grab it while it’s still sizzling!    PostgreSQL Support. In addition to SQLite, the core now also supports using a postgres database for storage. This is recommended in particular if you run Quassel core with several users, as SQLite tends to get slow then. Run quasselcore --help for information about how to switch (your data will be automatically migrated to the new backend if you select it).  /exec Support. This allows for running external scripts or programs and piping their output into IRC. For Linux, we provide a sysinfo script (/exec inxi) and a now-playing script for MPRIS-compliant media players such as amarok (/exec mpris amarok).  Ignore List. Yes, finally you can get rid of all the trolls (no, I don&#39;t mean you, Nokia Trolls! ;-)… either dynamically (so you can retroactively show them again) or permanently (in which case they won&#39;t get into your database at all).  Multiline Input. A long requested feature that allows you to have multiple lines in your input field and edit them before sending them off all at once. Press Shift+Enter to start a new line, or paste something with more than one line into the input field.  Smart Nick Completion. Quassel will now prefer users that have last talked in a channel, instead of going through the nicknames alphabetically. This should greatly reduce &quot;mis-tabbings&quot; ;-)  Full Stylesheet-Based Styling. We have extended support for Qt stylesheets (QSS) to allow extensive styling of the chat window. As an example (and for getting back the nice and colorful appearance we had in prior versions of Quassel), you can select the m4yer.qss stylesheet that should be installed in your data dir. We will work on improving this feature in future versions, and also document how it works soon.  Usability Improvements. Most notably, we have renamed all occurences of &quot;Buffer&quot; to &quot;Chat&quot;, so instead of Buffer Views, we now have Chat Lists. This has been done because users not familiar with curses-based IRC clients (or Emacs) were getting confused with the term &quot;Buffer&quot;. In addition, we have redesigned and reorganized more configuration dialogs, and removed the dreaded color settingspage.  Performance Improvements. Ever had trouble with Quassel Core taking minutes for starting up or shutting down? Ever noticed that joining or leaving a large channel could stall both client and core for ages? This has been fixed thanks to an improved client/core synchronization protocol.  For a more complete list of new stuff, please have a look at the afforementioned resources, or just try it out yourself!  ~ Sputnick out.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2009-10-20T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://quassel-irc.org/2009/10/good-news-everyone-presenting-quassel-0-5-0/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Quassel Project",
+      "url": "https://quassel-irc.org/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Quassel IRC Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/masthead-logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Quassel IRC
+          <span class="site-subtitle">Chat comfortably, everywhere.</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Manuel 'Sputnick' Nickschas</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Core Developer</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Germany</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/quassel/quassel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:sputnick <at> quassel-irc.org">
+            <meta itemprop="email" content="sputnick <at> quassel-irc.org" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Good News Everyone: Presenting Quassel 0.5.0!">
+    <meta itemprop="description" content="It’s been a while that we have announced a new release. Somehow, 0.4.2 and 0.4.3 never made it to the frontpage… Anyway, we haven’t been lazy and quietly worked on bringing you a brand new feature release: quassel-0.5.0!You can find most features we have added in the FeatureLog, and if you are really interested, you can also browse the Git history. A list of the most important things has been added below for your convenience. First though I want to get a few important notes out:Client/Core protocol, database schema and config file update: As mentioned before, a 0.5 Quassel Core will not work with a 0.4 client and vice versa. You will have to update both components. First time you run a 0.5 core or client, the config files and database will automatically be updated to the new format. Downgrades are not supported, so do make a backup if you intend to go back to 0.4 afterwards!A note for distro packagers: We will maintain a 0.5 branch in our repository that will receive important bugfixes, but no new features. We will probably also do periodic 0.5.x releases from this branch, while new and shiny stuff is being added to the master branch. If you maintain Quassel on a distro that suffers from version or feature freezes, you should make sure to track the 0.5 branch instead.Read on for a short list of the most important features, then head over to the downloads page to grab it while it’s still sizzling!PostgreSQL Support. In addition to SQLite, the core now also supports using a postgres database for storage. This is recommended in particular if you run Quassel core with several users, as SQLite tends to get slow then. Run quasselcore --help for information about how to switch (your data will be automatically migrated to the new backend if you select it)./exec Support. This allows for running external scripts or programs and piping their output into IRC. For Linux, we provide a sysinfo script (/exec inxi) and a now-playing script for MPRIS-compliant media players such as amarok (/exec mpris amarok).Ignore List. Yes, finally you can get rid of all the trolls (no, I don&#39;t mean you, Nokia Trolls! ;-)… either dynamically (so you can retroactively show them again) or permanently (in which case they won&#39;t get into your database at all).Multiline Input. A long requested feature that allows you to have multiple lines in your input field and edit them before sending them off all at once. Press Shift+Enter to start a new line, or paste something with more than one line into the input field.Smart Nick Completion. Quassel will now prefer users that have last talked in a channel, instead of going through the nicknames alphabetically. This should greatly reduce &quot;mis-tabbings&quot; ;-)Full Stylesheet-Based Styling. We have extended support for Qt stylesheets (QSS) to allow extensive styling of the chat window. As an example (and for getting back the nice and colorful appearance we had in prior versions of Quassel), you can select the m4yer.qss stylesheet that should be installed in your data dir. We will work on improving this feature in future versions, and also document how it works soon.Usability Improvements. Most notably, we have renamed all occurences of &quot;Buffer&quot; to &quot;Chat&quot;, so instead of Buffer Views, we now have Chat Lists. This has been done because users not familiar with curses-based IRC clients (or Emacs) were getting confused with the term &quot;Buffer&quot;. In addition, we have redesigned and reorganized more configuration dialogs, and removed the dreaded color settingspage.Performance Improvements. Ever had trouble with Quassel Core taking minutes for starting up or shutting down? Ever noticed that joining or leaving a large channel could stall both client and core for ages? This has been fixed thanks to an improved client/core synchronization protocol.For a more complete list of new stuff, please have a look at the afforementioned resources, or just try it out yourself!~ Sputnick out.">
+    <meta itemprop="datePublished" content="2009-10-20T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Good News Everyone: Presenting Quassel 0.5.0!
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>It’s been a while that we have announced a new release. Somehow, 0.4.2 and 0.4.3 never made it to the frontpage… Anyway, we haven’t been lazy and quietly worked on bringing you a brand new feature release: <a href="/pub/quassel-0.5.0.tar.bz2">quassel-0.5.0</a>!</p>
+
+<p>You can find most features we have added in the <a href="/pub/ChangeLog">FeatureLog</a>, and if you are <em>really</em> interested, you can also browse the <a href="http://git.quassel-irc.org/?p=quassel.git;a=shortlog;h=refs/heads/0.5">Git history</a>. A list of the most important things has been added below for your convenience. First though I want to get a few important notes out:</p>
+
+<p><b>Client/Core protocol, database schema and config file update:</b> As mentioned before, a 0.5 Quassel Core will not work with a 0.4 client and vice versa. You will have to update both components. First time you run a 0.5 core or client, the config files and database will automatically be updated to the new format. Downgrades are not supported, so do make a backup if you intend to go back to 0.4 afterwards!</p>
+
+<p><b>A note for distro packagers:</b> We will maintain a <a href="http://git.quassel-irc.org/?p=quassel.git;a=shortlog;h=refs/heads/0.5">0.5 branch</a> in our repository that will receive important bugfixes, but no new features. We will probably also do periodic 0.5.x releases from this branch, while new and shiny stuff is being added to the master branch. If you maintain Quassel on a distro that suffers from version or feature freezes, you should make sure to track the 0.5 branch instead.</p>
+
+<p>Read on for a short list of the most important features, then head over to the <a href="/downloads">downloads page</a> to grab it while it’s still sizzling!
+<!--break--></p>
+
+<ul>
+<li><b>PostgreSQL Support</b>. In addition to SQLite, the core now also supports using a postgres database for storage. This is recommended in particular if you run Quassel core with several users, as SQLite tends to get slow then. Run <code>quasselcore --help</code> for information about how to switch (your data will be automatically migrated to the new backend if you select it).</li>
+
+<li><b>/exec Support.</b> This allows for running external scripts or programs and piping their output into IRC. For Linux, we provide a sysinfo script (<code>/exec inxi</code>) and a now-playing script for MPRIS-compliant media players such as amarok (<code>/exec mpris amarok</code>).</li>
+
+<li><b>Ignore List.</b> Yes, finally you can get rid of all the trolls (no, I don't mean you, Nokia Trolls! ;-)… either dynamically (so you can retroactively show them again) or permanently (in which case they won't get into your database at all).</li>
+
+<li><b>Multiline Input.</b> A long requested feature that allows you to have multiple lines in your input field and edit them before sending them off all at once. Press Shift+Enter to start a new line, or paste something with more than one line into the input field.</li>
+
+<li><b>Smart Nick Completion.</b> Quassel will now prefer users that have last talked in a channel, instead of going through the nicknames alphabetically. This should greatly reduce "mis-tabbings" ;-)</li>
+
+<li><b>Full Stylesheet-Based Styling.</b> We have extended support for Qt stylesheets (QSS) to allow extensive styling of the chat window. As an example (and for getting back the nice and colorful appearance we had in prior versions of Quassel), you can select the m4yer.qss stylesheet that should be installed in your data dir. We will work on improving this feature in future versions, and also document how it works soon.</li>
+
+<li><b>Usability Improvements.</b> Most notably, we have renamed all occurences of "Buffer" to "Chat", so instead of Buffer Views, we now have Chat Lists. This has been done because users not familiar with curses-based IRC clients (or Emacs) were getting confused with the term "Buffer". In addition, we have redesigned and reorganized more configuration dialogs, and removed the dreaded color settingspage.</li>
+
+<li><b>Performance Improvements.</b> Ever had trouble with Quassel Core taking minutes for starting up or shutting down? Ever noticed that joining or leaving a large channel could stall both client and core for ages? This has been fixed thanks to an improved client/core synchronization protocol.</li>
+</ul>
+<p>For a more complete list of new stuff, please have a look at the afforementioned resources, or just try it out yourself!</p>
+
+<p>~ Sputnick out.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/release" class="page__taxonomy-item" rel="tag">release</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2009-10-20T00:00:00+00:00">October 20, 2009</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/2009/08/short-notice-protocol-break/" class="pagination--pager" title="Short Notice: Protocol Break
+">Previous</a>
+    
+    
+      <a href="/2009/10/get-the-text-call-for-translations/" class="pagination--pager" title="Get The Text - Call For Translations
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/quassel/quassel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Quassel Project. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

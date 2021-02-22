@@ -1,0 +1,423 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.22.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>The Review - Quassel IRC</title>
+<meta name="description" content="Since people keep asking us what our view is on the usability review seele recently did about Quassel IRC, I thought I should blog a little something.  First of all, it didn’t hit us as a surprise. We’ve been in contact with kubuntu about their plans before, and we’ve ongoing discussions with seele and other kubuntu devs about how to make Quassel suitable for new users, in particular for kubuntu’s main target group. Many things seele mentions in her review have been on our TODO list for a while now, but of course, being developers, we tend to put such issues off in favor of new features… now this whole thing shifts our priorities to focus on usability for a change. Sorry guys, this also means scripting support has to wait again…  Meanwhile, apachelogger is busy making the Quassel packages rock on kubuntu, and now provides nightly Quassel builds via Project Neon. And the Quassel developers, of course, are now busy to convert the review into code :)  Read on for some specific points.   The main issues we have on our agenda now:  Streamline the monolithic client to act more like a traditional IRC client Provide better defaults Make configuration easier  The first issue, of course, is key to provide a good first-run experience for users who are not familiar with Quassel’s client/core concept, or who are just looking for a “normal” IRC client. Of course, we mainly had that use case in mind when we decided to provide a monolithic client. As seele points out, currently our core connection dialog does not make it obvious how to use Quassel like that. We will streamline this to make the internal core more prominent (i.e. don’t ask for creating a remote core account), and probably add a way to directly enter network and identity settings if one wants to use the internal core. We won’t completely remove the ability to connect to remote cores from the monolithic clients; we’ll rather make it clear that this is an advanced feature. For kubuntu, we will probably add a compile-time option to hide the remote core options altogether by default. This should help new users to quickly get started with Quassel, and still allow advanced users to use remote cores.  “Better defaults” mainly concerns the buffer views we show when you start Quassel for the first time. Many of our users don’t even know that they can create custom views which allow the hiding and rearranging of channels. Instead, we plan to create a sensible set of custom views by default, and hide the “All Buffers” view. In fact, EgS has recently added a way to unhide hidden channels without resorting to the All Buffers view. Lack of that ability was the main reason for even having the All Buffers view, so this is the first step in making this better.  The configuration dialogs need some love as well. seezer is already busy fixing many of the UI issues seele pointed out, and I will tackle the styling options soon (i.e., make setting colors and fonts easier). With KDE integration enabled, you already get the standard “Configure Notifications” dialog from KDE rather than our own notifications, which should help to remove confusion about all the different options.  There are more issues, of course, and we’ll see how far we get with those until kubuntu goes into version freeze. Rest assured that the Quassel developers put a lot of effort into this, so the next release should have some visible improvements for you guys :)  Back to hacking now. Oh, and a Happy New Year! ~ Sput">
+
+
+  <meta name="author" content="Manuel 'Sputnick' Nickschas">
+  
+  <meta property="article:author" content="Manuel 'Sputnick' Nickschas">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Quassel IRC">
+<meta property="og:title" content="The Review">
+<meta property="og:url" content="https://quassel-irc.org/2009/01/the-review/">
+
+
+  <meta property="og:description" content="Since people keep asking us what our view is on the usability review seele recently did about Quassel IRC, I thought I should blog a little something.  First of all, it didn’t hit us as a surprise. We’ve been in contact with kubuntu about their plans before, and we’ve ongoing discussions with seele and other kubuntu devs about how to make Quassel suitable for new users, in particular for kubuntu’s main target group. Many things seele mentions in her review have been on our TODO list for a while now, but of course, being developers, we tend to put such issues off in favor of new features… now this whole thing shifts our priorities to focus on usability for a change. Sorry guys, this also means scripting support has to wait again…  Meanwhile, apachelogger is busy making the Quassel packages rock on kubuntu, and now provides nightly Quassel builds via Project Neon. And the Quassel developers, of course, are now busy to convert the review into code :)  Read on for some specific points.   The main issues we have on our agenda now:  Streamline the monolithic client to act more like a traditional IRC client Provide better defaults Make configuration easier  The first issue, of course, is key to provide a good first-run experience for users who are not familiar with Quassel’s client/core concept, or who are just looking for a “normal” IRC client. Of course, we mainly had that use case in mind when we decided to provide a monolithic client. As seele points out, currently our core connection dialog does not make it obvious how to use Quassel like that. We will streamline this to make the internal core more prominent (i.e. don’t ask for creating a remote core account), and probably add a way to directly enter network and identity settings if one wants to use the internal core. We won’t completely remove the ability to connect to remote cores from the monolithic clients; we’ll rather make it clear that this is an advanced feature. For kubuntu, we will probably add a compile-time option to hide the remote core options altogether by default. This should help new users to quickly get started with Quassel, and still allow advanced users to use remote cores.  “Better defaults” mainly concerns the buffer views we show when you start Quassel for the first time. Many of our users don’t even know that they can create custom views which allow the hiding and rearranging of channels. Instead, we plan to create a sensible set of custom views by default, and hide the “All Buffers” view. In fact, EgS has recently added a way to unhide hidden channels without resorting to the All Buffers view. Lack of that ability was the main reason for even having the All Buffers view, so this is the first step in making this better.  The configuration dialogs need some love as well. seezer is already busy fixing many of the UI issues seele pointed out, and I will tackle the styling options soon (i.e., make setting colors and fonts easier). With KDE integration enabled, you already get the standard “Configure Notifications” dialog from KDE rather than our own notifications, which should help to remove confusion about all the different options.  There are more issues, of course, and we’ll see how far we get with those until kubuntu goes into version freeze. Rest assured that the Quassel developers put a lot of effort into this, so the next release should have some visible improvements for you guys :)  Back to hacking now. Oh, and a Happy New Year! ~ Sput">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2009-01-03T00:00:00+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://quassel-irc.org/2009/01/the-review/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Quassel Project",
+      "url": "https://quassel-irc.org/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Quassel IRC Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/masthead-logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Quassel IRC
+          <span class="site-subtitle">Chat comfortably, everywhere.</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Manuel 'Sputnick' Nickschas</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Core Developer</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Germany</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/quassel/quassel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:sputnick <at> quassel-irc.org">
+            <meta itemprop="email" content="sputnick <at> quassel-irc.org" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="The Review">
+    <meta itemprop="description" content="Since people keep asking us what our view is on the usability review seele recently did about Quassel IRC, I thought I should blog a little something.First of all, it didn’t hit us as a surprise. We’ve been in contact with kubuntu about their plans before, and we’ve ongoing discussions with seele and other kubuntu devs about how to make Quassel suitable for new users, in particular for kubuntu’s main target group. Many things seele mentions in her review have been on our TODO list for a while now, but of course, being developers, we tend to put such issues off in favor of new features… now this whole thing shifts our priorities to focus on usability for a change. Sorry guys, this also means scripting support has to wait again…Meanwhile, apachelogger is busy making the Quassel packages rock on kubuntu, and now provides nightly Quassel builds via Project Neon. And the Quassel developers, of course, are now busy to convert the review into code :)Read on for some specific points.The main issues we have on our agenda now:Streamline the monolithic client to act more like a traditional IRC clientProvide better defaultsMake configuration easierThe first issue, of course, is key to provide a good first-run experience for users who are not familiar with Quassel’s client/core concept, or who are just looking for a “normal” IRC client. Of course, we mainly had that use case in mind when we decided to provide a monolithic client. As seele points out, currently our core connection dialog does not make it obvious how to use Quassel like that. We will streamline this to make the internal core more prominent (i.e. don’t ask for creating a remote core account), and probably add a way to directly enter network and identity settings if one wants to use the internal core. We won’t completely remove the ability to connect to remote cores from the monolithic clients; we’ll rather make it clear that this is an advanced feature. For kubuntu, we will probably add a compile-time option to hide the remote core options altogether by default. This should help new users to quickly get started with Quassel, and still allow advanced users to use remote cores.“Better defaults” mainly concerns the buffer views we show when you start Quassel for the first time. Many of our users don’t even know that they can create custom views which allow the hiding and rearranging of channels. Instead, we plan to create a sensible set of custom views by default, and hide the “All Buffers” view. In fact, EgS has recently added a way to unhide hidden channels without resorting to the All Buffers view. Lack of that ability was the main reason for even having the All Buffers view, so this is the first step in making this better.The configuration dialogs need some love as well. seezer is already busy fixing many of the UI issues seele pointed out, and I will tackle the styling options soon (i.e., make setting colors and fonts easier). With KDE integration enabled, you already get the standard “Configure Notifications” dialog from KDE rather than our own notifications, which should help to remove confusion about all the different options.There are more issues, of course, and we’ll see how far we get with those until kubuntu goes into version freeze. Rest assured that the Quassel developers put a lot of effort into this, so the next release should have some visible improvements for you guys :)Back to hacking now. Oh, and a Happy New Year!~ Sput">
+    <meta itemprop="datePublished" content="2009-01-03T00:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">The Review
+</h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Since people keep asking us what our view is on the <a href="http://weblog.obso1337.org/2008/expert-review-of-quassel-031/">usability review</a> seele recently did about Quassel IRC, I thought I should blog a little something.</p>
+
+<p>First of all, it didn’t hit us as a surprise. We’ve been in contact with kubuntu about their plans before, and we’ve ongoing discussions with seele and other kubuntu devs about how to make Quassel suitable for new users, in particular for kubuntu’s main target group. Many things seele mentions in her review have been on our TODO list for a while now, but of course, being developers, we tend to put such issues off in favor of new features… now this whole thing shifts our priorities to focus on usability for a change. Sorry guys, this also means scripting support has to wait again…</p>
+
+<p>Meanwhile, <a href="http://apachelog.blogspot.com/">apachelogger</a> is busy making the Quassel packages rock on kubuntu, and now provides nightly Quassel builds via <a href="http://amarok.kde.org/wiki/User:Apachelogger/Project_Neon/KDE/Info">Project Neon</a>. And the Quassel developers, of course, are now busy to convert the review into code :)</p>
+
+<p>Read on for some specific points.
+<!--break--></p>
+
+<p>The main issues we have on our agenda now:</p>
+<ul>
+<li>Streamline the monolithic client to act more like a traditional IRC client</li>
+<li>Provide better defaults</li>
+<li>Make configuration easier</li>
+</ul>
+<p>The first issue, of course, is key to provide a good first-run experience for users who are not familiar with Quassel’s client/core concept, or who are just looking for a “normal” IRC client. Of course, we mainly had that use case in mind when we decided to provide a monolithic client. As seele points out, currently our core connection dialog does not make it obvious how to use Quassel like that. We will streamline this to make the internal core more prominent (i.e. don’t ask for creating a remote core account), and probably add a way to directly enter network and identity settings if one wants to use the internal core. We won’t completely remove the ability to connect to remote cores from the monolithic clients; we’ll rather make it clear that this is an advanced feature. For kubuntu, we will probably add a compile-time option to hide the remote core options altogether by default. This should help new users to quickly get started with Quassel, and still allow advanced users to use remote cores.</p>
+
+<p>“Better defaults” mainly concerns the buffer views we show when you start Quassel for the first time. Many of our users don’t even know that they can create custom views which allow the hiding and rearranging of channels. Instead, we plan to create a sensible set of custom views by default, and hide the “All Buffers” view. In fact, EgS has recently added a way to unhide hidden channels without resorting to the All Buffers view. Lack of that ability was the main reason for even having the All Buffers view, so this is the first step in making this better.</p>
+
+<p>The configuration dialogs need some love as well. seezer is already busy fixing many of the UI issues seele pointed out, and I will tackle the styling options soon (i.e., make setting colors and fonts easier). With KDE integration enabled, you already get the standard “Configure Notifications” dialog from KDE rather than our own notifications, which should help to remove confusion about all the different options.</p>
+
+<p>There are more issues, of course, and we’ll see how far we get with those until kubuntu goes into version freeze. Rest assured that the Quassel developers put a lot of effort into this, so the next release should have some visible improvements for you guys :)</p>
+
+<p>Back to hacking now. Oh, and a Happy New Year!<br />
+~ Sput</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2009-01-03T00:00:00+00:00">January 3, 2009</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/2008/12/quassel-coming-to-a-kde4-near-you/" class="pagination--pager" title="Quassel - Coming to a KDE4 near you
+">Previous</a>
+    
+    
+      <a href="/2009/01/im-going-to-fosdem/" class="pagination--pager" title="I’m going to FOSDEM!
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/quassel/quassel" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Quassel Project. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

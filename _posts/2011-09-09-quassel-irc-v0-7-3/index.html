@@ -1,0 +1,11 @@
+<p>On September 8th, the IRC was in turmoil because someone discovered and actively exploited a bug in Quassel’s CTCP handling that would cause the core to crash when processing a specially crafted CTCP message. What followed was masses of users quitting from Freenode, because their cores crashed.</p>
+
+<p>We found and fixed the issue within a few hours, and have issued a new <a href="https://github.com/quassel/quassel/archive/0.7.3.tar.gz">bugfix release</a>. We strongly recommend updating your core or monolithic client as soon as possible to avoid crashes. Client-only builds are not affected.</p>
+
+<p>Tarball and static core are available from the <a href="http://quassel-irc.org/downloads">download page</a>; some distros have already bumped their packages, others should follow soon. Packages for other platforms are not done yet, they will follow shortly.</p>
+
+<p>If you cannot update your core right now, you (this means, all users of your core) should add an ignore rule to globally ignore CTCP requests. This will avoid the crash as well.</p>
+
+<p>Sorry for the noise, but bugfree code is a myth :)</p>
+
+<p>~ Sputnick</p>
